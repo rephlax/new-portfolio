@@ -18,6 +18,35 @@ const DraggableTest: FC<DraggableTestProps> = (boundaryRef) => {
 	//   </div>
 	// );
 
+	// 	import { motion, useDragControls } from "framer-motion";
+
+	// const MacOSWindow = ({ title, children, boundaryRef }) => {
+	//   const controls = useDragControls();
+
+	//   return (
+	//     <motion.div
+	//       drag
+	//       dragControls={controls} // The window is draggable...
+	//       dragListener={false}    // ...but NOT by clicking the content area
+	//       dragConstraints={boundaryRef}
+	//       className={styles.windowShell}
+	//     >
+	//       {/* THIS IS THE HANDLE */}
+	//       <div
+	//         className={styles.titleBar}
+	//         onPointerDown={(e) => controls.start(e)} // Start dragging only here
+	//       >
+	//         <div className={styles.controls}> {/* traffic lights */} </div>
+	//         <span>{title}</span>
+	//       </div>
+
+	//       <div className={styles.content}>
+	//         {children}
+	//       </div>
+	//     </motion.div>
+	//   );
+	// }; EXAMPLE TO LEARN HOW THE DRAGGING WILL WORK AS I DONT WANT THE WHOLE WINDOW TO BE CLICK AND DRAG, ONLY THE TOP BAR TO MOVE THE WINDOW.
+
 	return (
 		<motion.div
 			drag
