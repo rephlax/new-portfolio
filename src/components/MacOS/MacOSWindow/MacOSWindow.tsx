@@ -16,7 +16,12 @@ interface MacOSWindowProps {
 }
 
 const MacOSWindow: FC<MacOSWindowProps> = () => (
-	<div className={styles.MacOSWindow}>MacOSWindow Component</div>
+	<div className={styles.MacOSWindow}>
+		<div className={styles.MacOSWindowContainer}>
+			<div className={styles.MacOSSideWindowContainer}></div>
+		</div>
+		<NavOptions />
+	</div>
 );
 
 export default MacOSWindow;

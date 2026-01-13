@@ -1,1 +1,23 @@
-.MacOSWindow {}
+.MacOSWindow {
+	display: flex;
+	flex-direction: column;
+	height: 100dvh;
+	width: 100dvw;
+	padding: 1.5rem;
+}
+
+.MacOSWindowContainer {
+	display: flex;
+}
+
+.MacOSNavContainer {
+	display: flex;
+}
+
+.MacOSSideWindowContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 24px;
+}
