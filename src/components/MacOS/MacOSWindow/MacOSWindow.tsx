@@ -18,7 +18,11 @@ interface MacOSWindowProps {
 const MacOSWindow: FC<MacOSWindowProps> = () => (
 	<div className={styles.MacOSWindow}>
 		<div className={styles.MacOSWindowContainer}>
-			<div className={styles.MacOSSideWindowContainer}></div>
+			<FinderWindow />
+			<div className={styles.MacOSSideWindowContainer}>
+				<AboutWindow />
+				<LightHouseWindow />
+			</div>
 		</div>
 		<NavOptions />
 	</div>
