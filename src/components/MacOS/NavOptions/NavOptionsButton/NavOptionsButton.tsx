@@ -1,24 +1,43 @@
 import React, { FC } from "react";
 import styles from "./NavOptionsButton.module.css";
-import { motion, Variants, hover } from "motion";
+import { motion, hover } from "motion/react";
 
 interface NavOptionsButtonProps {
 	img: string;
-	hoverTtitle: string;
+	hoverTitle: string;
 	link: string;
 }
+
+const textVariants: Variants = {
+	hidden: {
+		opacity: 0,
+		y: -5,
+		transition: { duration: 0.3 },
+	},
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: { duration: 0.3 },
+	},
+};
 
 const NavOptionsButton: FC<NavOptionsButtonProps> = ({
 	img,
 	hoverTitle,
 	link,
 }) => {
-	function handleTitleHover() {}
-
 	return (
-		<motion.a className={styles.NavOptionsButton}>
+		<motion.a
+			className={styles.NavOptionsButton}
+			initial="hidden"
+			whileHover="visible"
+			whileTap={{ scale: 0.95 }}
+			href={link}
+		>
 			<img src={img} className={styles.logo} />
-			<motion.span className={styles.hoverTitle}>{hoverTitle}</motion.span>
+			<motion.span className={styles.hoverTitle} variants={textVariants}>
+				{hoverTitle}
+			</motion.span>
 		</motion.a>
 	);
 };
