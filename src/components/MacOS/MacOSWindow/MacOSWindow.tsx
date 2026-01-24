@@ -1,4 +1,4 @@
-import React, { FC, type ReactNode } from "react";
+import React, { FC, useRef, type ReactNode } from "react";
 import styles from "./MacOSWindow.module.css";
 import AboutWindow from "../AboutWindow/AboutWindow";
 import FinderWindow from "../FinderWindow/FinderWindow";
@@ -15,17 +15,20 @@ interface MacOSWindowProps {
 	children?: ReactNode;
 }
 
-const MacOSWindow: FC<MacOSWindowProps> = () => (
-	<div className={styles.MacOSWindow}>
-		<div className={styles.MacOSWindowContainer}>
-			<FinderWindow />
-			<div className={styles.MacOSSideWindowContainer}>
-				<AboutWindow />
-				<LightHouseWindow />
+const MacOSWindow: FC<MacOSWindowProps> = () => {
+	const macOSRef = useRef<HTMLDivElement>(null);
+	return (
+		<div className={styles.MacOSWindow} ref={macOSRef}>
+			<div className={styles.MacOSWindowContainer}>
+				<FinderWindow containerRef={macOSRef} />
+				<div className={styles.MacOSSideWindowContainer}>
+					<AboutWindow containerRef={macOSRef} />
+					<LightHouseWindow containerRef={macOSRef} />
+				</div>
 			</div>
+			<NavOptions />
 		</div>
-		<NavOptions />
-	</div>
-);
+	);
+};
 
 export default MacOSWindow;

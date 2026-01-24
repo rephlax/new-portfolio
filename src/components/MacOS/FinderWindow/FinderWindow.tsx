@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
-import styles from './FinderWindow.module.css';
+import React, { FC, RefObject } from "react";
+import styles from "./FinderWindow.module.css";
 
-interface FinderWindowProps {}
+interface FinderWindowProps {
+	containerRef: RefObject<HTMLDivElement | null>;
+}
 
-const FinderWindow: FC<FinderWindowProps> = () => (
-  <div className={styles.FinderWindow}>
-    FinderWindow Component
-  </div>
+const FinderWindow: FC<FinderWindowProps> = ({ containerRef }) => (
+	<div className={styles.FinderWindow}>FinderWindow Component</div>
 );
 
 export default FinderWindow;
