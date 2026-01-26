@@ -6,7 +6,14 @@ interface NavOptionsProps {}
 
 const NavOptions: FC<NavOptionsProps> = () => (
 	<div className={styles.NavOptions}>
-		<NavOptionsButton img="test" hoverTitle="test" link="test" />
+		<NavOptionsButton img="linkedIn" hoverTitle="test" link="test" />
+		<NavOptionsButton img="Github" hoverTitle="GitHub" link="GitHub" />
+		<NavOptionsButton
+			img="toggleDark"
+			hoverTitle="DarkMode"
+			link="#"
+			isThemeToggle={true}
+		/>
 	</div>
 );
 

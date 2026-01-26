@@ -1,11 +1,12 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import styles from "./NavOptionsButton.module.css";
 import { motion, hover } from "motion/react";
-
+import { useTheme } from "src/context/ThemeContext";
 interface NavOptionsButtonProps {
 	img: string;
 	hoverTitle: string;
-	link: string;
+	link?: string;
+	isThemeToggle?: boolean;
 }
 
 const textVariants: Variants = {
@@ -25,7 +26,25 @@ const NavOptionsButton: FC<NavOptionsButtonProps> = ({
 	img,
 	hoverTitle,
 	link,
+	isThemeToggle = false,
 }) => {
+	const { toggleTheme } = useTheme();
+	if (isThemeToggle) {
+		return (
+			<motion.button
+				className={styles.NavOptionsButton}
+				initial="hidden"
+				whileHover="visible"
+				whileTap={{ scale: 0.95 }}
+				onClick={() => setToggleTheme(!toggleTheme)}
+			>
+				<img src={img} className={styles.logo} />
+				<motion.span className={styles.hoverTitle} variants={textVariants}>
+					{hoverTitle}
+				</motion.span>
+			</motion.button>
+		);
+	}
 	return (
 		<motion.a
 			className={styles.NavOptionsButton}
