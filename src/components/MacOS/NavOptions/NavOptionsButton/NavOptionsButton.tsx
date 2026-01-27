@@ -36,7 +36,7 @@ const NavOptionsButton: FC<NavOptionsButtonProps> = ({
 				initial="hidden"
 				whileHover="visible"
 				whileTap={{ scale: 0.95 }}
-				onClick={() => setToggleTheme(!toggleTheme)}
+				onClick={() => toggleTheme(!toggleTheme)}
 			>
 				<img src={img} className={styles.logo} />
 				<motion.span className={styles.hoverTitle} variants={textVariants}>

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { createContext } from "react";
 
-const ThemeContext = () => {
-	return <div>ThemeContext</div>;
-};
+type ThemeContextType = "light" | "dark";
+
+const ThemeContext = createContext<ThemeContextType>(
+	window.matchMedia("(prefers-color-scheme: dark)"),
+);
 
 export default ThemeContext;
