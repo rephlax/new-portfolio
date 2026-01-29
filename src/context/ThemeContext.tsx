@@ -2,8 +2,16 @@ import React, { createContext } from "react";
 
 type ThemeContextType = "light" | "dark";
 
-const ThemeContext = createContext<ThemeContextType>(
-	window.matchMedia("(prefers-color-scheme: dark)"),
-);
+function prefersDarkMode() {
+	return (
+		typeof window !== "undefined" &&
+		window.matchMedia &&
+		window.matchMedia("(prefers-color-scheme: dark;)").matches
+	);
+}
+
+const initialTheme: ThemeContextType = prefersDarkMode() ? "dark" : "light";
+
+const ThemeContext = createContext<ThemeContextType>(initialTheme);
 
 export default ThemeContext;
