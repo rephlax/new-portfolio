@@ -1,6 +1,11 @@
-import React, { createContext } from "react";
+import React, { createContext, useState, useEffect, ReactNode } from "react";
 
-type ThemeContextType = "light" | "dark";
+type Theme = "light" | "dark";
+
+interface ThemeContext {
+	theme: Theme;
+	toggleTheme: () => void;
+}
 
 function prefersDarkMode() {
 	return (
