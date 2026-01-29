@@ -1,22 +1,38 @@
-import React, { createContext, useState, useEffect, ReactNode } from "react";
+import { createContext, useState } from "react";
+
+type ThemeContextProviderProps = {
+	children: React.ReactNode;
+};
 
 type Theme = "light" | "dark";
 
-interface ThemeContext {
+type ThemeContextType = {
 	theme: Theme;
 	toggleTheme: () => void;
-}
+};
 
-function prefersDarkMode() {
+export const Context = createContext({} as ThemeContextType);
+
+export const ThemeContextProvider = ({
+	children,
+}: ThemeContextProviderProps) => {
+	const [theme, setTheme] = useState<Theme>(() => {
+		if (
+			window.matchMedia &&
+			window.matchMedia("(prefers-color-scheme: light;)").matches
+		) {
+			return "light";
+		} else {
+			return "dark";
+		}
+	});
+
+	const toggleTheme = () => {
+		setTheme((prev) => (prev === "light" ? "dark" : "light"));
+	};
 	return (
-		typeof window !== "undefined" &&
-		window.matchMedia &&
-		window.matchMedia("(prefers-color-scheme: dark;)").matches
+		<Context.Provider value={{ theme, toggleTheme }}>
+			{children}
+		</Context.Provider>
 	);
-}
-
-const initialTheme: ThemeContextType = prefersDarkMode() ? "dark" : "light";
-
-const ThemeContext = createContext<ThemeContextType>(initialTheme);
-
-export default ThemeContext;
+};

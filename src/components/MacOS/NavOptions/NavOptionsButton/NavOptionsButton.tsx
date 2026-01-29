@@ -1,7 +1,7 @@
-import React, { FC, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import styles from "./NavOptionsButton.module.css";
-import { motion, hover } from "motion/react";
-import { useTheme } from "src/context/ThemeContext";
+import { motion, hover, Variants } from "motion/react";
+import { Context } from "../../../../context/ThemeProvider";
 interface NavOptionsButtonProps {
 	img: string;
 	hoverTitle: string;
@@ -28,7 +28,7 @@ const NavOptionsButton: FC<NavOptionsButtonProps> = ({
 	link,
 	isThemeToggle = false,
 }) => {
-	const { toggleTheme } = useTheme();
+	const { theme, toggleTheme } = useContext(Context);
 	if (isThemeToggle) {
 		return (
 			<motion.button
@@ -36,29 +36,30 @@ const NavOptionsButton: FC<NavOptionsButtonProps> = ({
 				initial="hidden"
 				whileHover="visible"
 				whileTap={{ scale: 0.95 }}
-				onClick={() => toggleTheme(!toggleTheme)}
+				onClick={() => toggleTheme()}
 			>
-				<img src={img} className={styles.logo} />
+				<img alt={theme + " mode"} src={img} className={styles.logo} />
 				<motion.span className={styles.hoverTitle} variants={textVariants}>
 					{hoverTitle}
 				</motion.span>
 			</motion.button>
 		);
+	} else {
+		return (
+			<motion.a
+				className={styles.NavOptionsButton}
+				initial="hidden"
+				whileHover="visible"
+				whileTap={{ scale: 0.95 }}
+				href={link}
+			>
+				<img alt={hoverTitle} src={img} className={styles.logo} />
+				<motion.span className={styles.hoverTitle} variants={textVariants}>
+					{hoverTitle}
+				</motion.span>
+			</motion.a>
+		);
 	}
-	return (
-		<motion.a
-			className={styles.NavOptionsButton}
-			initial="hidden"
-			whileHover="visible"
-			whileTap={{ scale: 0.95 }}
-			href={link}
-		>
-			<img src={img} className={styles.logo} />
-			<motion.span className={styles.hoverTitle} variants={textVariants}>
-				{hoverTitle}
-			</motion.span>
-		</motion.a>
-	);
 };
 // On hover add a function call that will handle the title showing. title will be a span under that is hidden originally and is absolute that will then have an animation maybe in opacity to 1 on hover.
 export default NavOptionsButton;
