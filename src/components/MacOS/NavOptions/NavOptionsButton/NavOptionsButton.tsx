@@ -1,6 +1,6 @@
 import React, { FC, useContext, useState } from "react";
 import styles from "./NavOptionsButton.module.css";
-import { motion, hover, Variants } from "motion/react";
+import { motion, hover } from "motion/react";
 import { Context } from "../../../../context/ThemeProvider";
 interface NavOptionsButtonProps {
 	img: string;
