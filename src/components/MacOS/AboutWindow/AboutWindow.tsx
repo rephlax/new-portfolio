@@ -1,8 +1,9 @@
-import React, { FC, RefObject } from "react";
+import React, { FC, RefObject, ReactNode } from "react";
 import styles from "./AboutWindow.module.css";
 
 interface AboutWindowProps {
 	containerRef: RefObject<HTMLDivElement | null>;
+	children?: ReactNode;
 }
 
 const AboutWindow: FC<AboutWindowProps> = ({ containerRef }) => (
