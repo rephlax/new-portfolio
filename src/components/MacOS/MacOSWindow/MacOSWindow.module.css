@@ -7,6 +7,10 @@
 	align-items: center;
 	justify-content: center;
 	gap: 20%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url("https://images.unsplash.com/photo-1517181875630-f72350452109?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Ymx1ZSUyMHRlY2hub2xvZ3l8ZW58MHx8MHx8fDA%3D");
 }
 
 .MacOSWindowContainer {

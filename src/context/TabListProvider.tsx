@@ -39,3 +39,9 @@ export const ThemeContextProvider = ({
 		</Context.Provider>
 	);
 };
+// USE FOR THE TRAFFICLIGHT BUTTONS, ADD ON CLICKS FOR THE MINIMISE AND RESTORE FUNCTIONS.
+// Only show LightHouse if it's in the openWindows list
+//                     {openWindows.includes("LightHouse") && (
+//                         <LightHouseWindow containerRef={macOSRef} />
+//                     )}
+// Example usage ^

@@ -5,7 +5,7 @@ import NavOptionsButton from "./NavOptionsButton/NavOptionsButton";
 interface NavOptionsProps {}
 
 const NavOptions: FC<NavOptionsProps> = () => (
-	<div className={styles.NavOptions}>
+	<div className={`${styles.NavOptions} ${styles.NavOptions}`}>
 		<NavOptionsButton img="linkedIn" hoverTitle="test" link="test" />
 		<NavOptionsButton img="Github" hoverTitle="GitHub" link="GitHub" />
 		<NavOptionsButton
