@@ -20,7 +20,7 @@ const categories: Category[] = [
 ];
 
 const LightHouseWindow: FC<LightHouseWindowProps> = ({ containerRef }) => (
-	<div className={styles.LightHouseWindow}>
+	<section role="region" className={styles.LightHouseWindow}>
 		<Header title="LightHouse Score" />
 		<section id="content">
 			<div id="scoreChart"></div>
@@ -28,16 +28,16 @@ const LightHouseWindow: FC<LightHouseWindowProps> = ({ containerRef }) => (
 				<ul>
 					{categories.map((cat) => (
 						<li key={cat.name}>
-							<section className="styles.scoreDesc">
+							<div className="styles.scoreDesc">
 								<h3 className="styles.scoreTitle">{cat.name}</h3>
 								<p className="styles.scoreNumber">{cat.score}</p>
-							</section>
+							</div>
 						</li>
 					))}
 				</ul>
 			</div>
 		</section>
-	</div>
+	</section>
 );
 
 export default LightHouseWindow;
