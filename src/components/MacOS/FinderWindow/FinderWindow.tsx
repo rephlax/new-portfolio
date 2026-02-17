@@ -17,7 +17,9 @@ const FinderWindow: FC<FinderWindowProps> = ({ containerRef }) => (
 				<a>About</a>
 				<a>Contact Me</a>
 			</div>
-			<div id="content"></div>
+			<div id="content">
+				{/* ADD A CONDITIONAL THAT WILL RENDER THE DIFFERENT SCREENS IF THE BUTTON IS PUSHED, IF NOT SHOW A PICTURE OF ME WITH A HEADLINE OF MYSELF */}
+			</div>
 		</section>
 	</section>
 );
