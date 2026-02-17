@@ -5,6 +5,7 @@ interface TopBarButtonsProps {
 	onClose?: () => void;
 	onMinimise?: () => void;
 	onMaximise?: () => void;
+	className?: string;
 }
 
 const TopBarButtons: FC<TopBarButtonsProps> = ({
