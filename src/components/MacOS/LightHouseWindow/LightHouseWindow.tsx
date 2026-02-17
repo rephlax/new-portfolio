@@ -1,5 +1,6 @@
 import React, { FC, RefObject, ReactNode } from "react";
 import styles from "./LightHouseWindow.module.css";
+import Header from "../../Shared/Header/Header";
 
 interface LightHouseWindowProps {
 	containerRef: RefObject<HTMLDivElement | null>;
@@ -20,7 +21,7 @@ const categories: Category[] = [
 
 const LightHouseWindow: FC<LightHouseWindowProps> = ({ containerRef }) => (
 	<div className={styles.LightHouseWindow}>
-		<header id="topbar"></header>
+		<Header title="LightHouse Score" />
 		<section id="content">
 			<div id="scoreChart"></div>
 			<div id="scoreDescriptions">
