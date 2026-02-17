@@ -10,7 +10,15 @@ interface FinderWindowProps {
 const FinderWindow: FC<FinderWindowProps> = ({ containerRef }) => (
 	<section role="region" className={styles.FinderWindow}>
 		<Header title="Explore" />
-		<div>FinderWindow Component</div>
+		<section>
+			<div id="sidebar">
+				<a>Projects</a>
+				<a>Skills</a>
+				<a>About</a>
+				<a>Contact Me</a>
+			</div>
+			<div id="content"></div>
+		</section>
 	</section>
 );
 
