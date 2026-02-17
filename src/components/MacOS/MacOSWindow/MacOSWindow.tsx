@@ -18,7 +18,7 @@ interface MacOSWindowProps {
 const MacOSWindow: FC<MacOSWindowProps> = () => {
 	const macOSRef = useRef<HTMLDivElement>(null);
 	return (
-		<div className={styles.MacOSWindow} ref={macOSRef}>
+		<main className={styles.MacOSWindow} ref={macOSRef}>
 			<div className={styles.MacOSWindowContainer}>
 				<FinderWindow containerRef={macOSRef} />
 				<div className={styles.MacOSSideWindowContainer}>
@@ -27,7 +27,7 @@ const MacOSWindow: FC<MacOSWindowProps> = () => {
 				</div>
 			</div>
 			<NavOptions />
-		</div>
+		</main>
 	);
 };
 

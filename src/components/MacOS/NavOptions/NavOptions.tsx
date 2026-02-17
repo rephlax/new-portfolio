@@ -2,10 +2,12 @@ import React, { FC } from "react";
 import styles from "./NavOptions.module.css";
 import NavOptionsButton from "./NavOptionsButton/NavOptionsButton";
 
-interface NavOptionsProps {}
+interface NavOptionsProps {
+	children?: ReactNode;
+}
 
 const NavOptions: FC<NavOptionsProps> = () => (
-	<div className={`${styles.NavOptions} ${styles.NavOptions}`}>
+	<header className={`${styles.NavOptions} ${styles.NavOptions}`}>
 		<NavOptionsButton img="linkedIn" hoverTitle="test" link="test" />
 		<NavOptionsButton img="Github" hoverTitle="GitHub" link="GitHub" />
 		<NavOptionsButton
@@ -14,7 +16,7 @@ const NavOptions: FC<NavOptionsProps> = () => (
 			link="#"
 			isThemeToggle={true}
 		/>
-	</div>
+	</header>
 );
 
 export default NavOptions;
